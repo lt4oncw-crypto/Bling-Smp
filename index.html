@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bling SMP | Premium Minecraft Experience</title>
+    <meta name="description" content="Experience the most luxury SMP in Minecraft. Join Bling SMP today and start your billionaire journey.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-glass">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="text-gradient-gold">BLING</span> SMP
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#staff">Staff</a></li>
+                <li><a href="https://discord.gg/bling-smp" class="btn-gold nav-btn">Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-bg-sparkles" id="sparkles-container"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title" data-aos="fade-up">THE MOST <br><span class="text-gradient-gold">LUXURIOUS</span> SMP</h1>
+            <p class="hero-subtitle">Bling SMP is the ultimate survival experience where wealth and royalty meet. Join the elite today.</p>
+            
+            <div class="ip-container-wrapper">
+                <div class="ip-container glass-card" onclick="copyIP()">
+                    <span class="ip-label">SERVER IP:</span>
+                    <span class="ip-address" id="server-ip">Bling.smp.quest</span>
+                    <i class="fa-solid fa-copy copy-icon"></i>
+                </div>
+                <div id="copy-toast" class="copy-toast">Copied to Clipboard!</div>
+            </div>
+
+            <div class="player-count">
+                <span class="dot"></span> <span id="p-count">124</span> PLAYERS ONLINE
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">WHY <span class="text-gradient-gold">BLING?</span></h2>
+            <div class="features-grid">
+                <div class="glass-card feature-item">
+                    <i class="fa-solid fa-gem gold-icon"></i>
+                    <h3>Diamond Economy</h3>
+                    <p>Experience a stable, custom economy built for the elite. Trade like a mogul.</p>
+                </div>
+                <div class="glass-card feature-item">
+                    <i class="fa-solid fa-crown gold-icon"></i>
+                    <h3>Custom Ranks</h3>
+                    <p>Stand out with exclusive, high-end ranks that give you the respect you deserve.</p>
+                </div>
+                <div class="glass-card feature-item">
+                    <i class="fa-solid fa-shield-halved gold-icon"></i>
+                    <h3>No-Grief Zone</h3>
+                    <p>Protected lands for your mansions. Build big without the fear of theft.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="staff" id="staff">
+        <div class="container">
+            <h2 class="section-title">OUR <span class="text-gradient-gold">ROYALTY</span></h2>
+            <div class="staff-grid">
+                <div class="glass-card staff-card">
+                    <div class="staff-avatar">
+                        <img src="https://mc-heads.net/avatar/Owner" alt="Owner">
+                    </div>
+                    <h3>Server Owner</h3>
+                    <span class="rank OWNER">OWNER</span>
+                </div>
+                <div class="glass-card staff-card">
+                    <div class="staff-avatar">
+                        <img src="https://mc-heads.net/avatar/Admin" alt="Admin">
+                    </div>
+                    <h3>Developer</h3>
+                    <span class="rank ADMIN">ADMIN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">BLING SMP</div>
+            <p>&copy; 2026 Bling SMP. All rights reserved. <br> Not an official Minecraft product.</p>
+            <div class="made-by">Built with 💎 by <span class="text-gradient-gold">Antigravity</span></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
