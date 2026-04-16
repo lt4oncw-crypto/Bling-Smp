@@ -189,3 +189,46 @@ document.addEventListener('click', (e) => {
         drawer.classList.remove('open');
     }
 });
+
+// Custom Cursor Logic
+const cursorFollow = document.querySelector('.cursor-follow');
+const cursorDot = document.querySelector('.cursor-dot');
+let mouseX = 0, mouseY = 0;
+let followX = 0, followY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Dot moves instantly
+    if (cursorDot) {
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+    }
+});
+
+// Smooth trail for the follow circle
+function animateCursor() {
+    const lerp = 0.15;
+    followX += (mouseX - followX) * lerp;
+    followY += (mouseY - followY) * lerp;
+    
+    if (cursorFollow) {
+        cursorFollow.style.left = `${followX}px`;
+        cursorFollow.style.top = `${followY}px`;
+    }
+    
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover effects
+const interactiveElements = document.querySelectorAll('a, button, .ip-container, .btn-gold, .btn-outline-gold');
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorFollow.classList.add('custom-cursor-hover');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursorFollow.classList.remove('custom-cursor-hover');
+    });
+});

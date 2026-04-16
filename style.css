@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
 
 :root {
     /* Color Palette - Luxury Gold & Diamond */
@@ -30,7 +30,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: none !important;
+}
+
+a, button, [role="button"], .ip-container {
+    cursor: none !important;
 }
 
 body {
@@ -58,7 +63,7 @@ body {
 
 /* Base Styles */
 h1, h2, h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Bricolage Grotesk', sans-serif;
     letter-spacing: -0.02em;
 }
 
@@ -676,5 +681,53 @@ footer {
     .cart-drawer {
         width: 100%;
         right: -100%;
+    }
+}
+/* Custom Cursor Styles */
+.cursor-follow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 215, 0, 0.2);
+    border: 1px solid var(--gold-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    mix-blend-mode: normal;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: var(--gold-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Cursor Hover State */
+.custom-cursor-hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-width: 2px;
+}
+
+@media (max-width: 1024px) {
+    .cursor-follow, .cursor-dot {
+        display: none;
+    }
+    * {
+        cursor: auto !important;
     }
 }
