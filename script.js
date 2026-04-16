@@ -192,7 +192,7 @@ document.addEventListener('click', (e) => {
 
 // Custom Cursor Logic
 const cursorFollow = document.querySelector('.cursor-follow');
-const cursorDot = document.querySelector('.cursor-dot');
+const cursorGem = document.querySelector('.cursor-gem');
 let mouseX = 0, mouseY = 0;
 let followX = 0, followY = 0;
 
@@ -200,10 +200,10 @@ document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
-    // Dot moves instantly
-    if (cursorDot) {
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
+    // Gem moves instantly
+    if (cursorGem) {
+        cursorGem.style.left = `${mouseX}px`;
+        cursorGem.style.top = `${mouseY}px`;
     }
 });
 
@@ -223,12 +223,12 @@ function animateCursor() {
 animateCursor();
 
 // Hover effects
-const interactiveElements = document.querySelectorAll('a, button, .ip-container, .btn-gold, .btn-outline-gold');
+const interactiveElements = document.querySelectorAll('a, button, .ip-container, .btn-gold, .btn-outline-gold, .glass-card');
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-        cursorFollow.classList.add('custom-cursor-hover');
+        if (cursorFollow) cursorFollow.classList.add('custom-cursor-hover');
     });
     el.addEventListener('mouseleave', () => {
-        cursorFollow.classList.remove('custom-cursor-hover');
+        if (cursorFollow) cursorFollow.classList.remove('custom-cursor-hover');
     });
 });

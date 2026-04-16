@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=Sekuya&display=swap');
 
 :root {
     /* Color Palette - Luxury Gold & Diamond */
@@ -63,8 +63,9 @@ body {
 
 /* Base Styles */
 h1, h2, h3 {
-    font-family: 'Bricolage Grotesk', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Sekuya', cursive;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .text-gradient-gold {
@@ -164,9 +165,10 @@ h1, h2, h3 {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    font-family: 'Sekuya', cursive;
+    letter-spacing: 2px;
 }
 
 .nav-links {
@@ -688,43 +690,51 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255, 215, 0, 0.2);
-    border: 1px solid var(--gold-primary);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.3);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, background-color 0.3s;
     mix-blend-mode: normal;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
-.cursor-dot {
+.cursor-gem {
     position: fixed;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
-    background-color: var(--gold-primary);
-    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--grad-gold);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    animation: gem-spin 3s linear infinite;
+}
+
+@keyframes gem-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Cursor Hover State */
 .custom-cursor-hover {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-color: rgba(255, 215, 0, 0.1);
+    border-color: var(--gold-primary);
     border-width: 2px;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
 }
 
 @media (max-width: 1024px) {
-    .cursor-follow, .cursor-dot {
+    .cursor-follow, .cursor-gem {
         display: none;
     }
     * {
