@@ -20,6 +20,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#store">Store</a></li>
                 <li><a href="#staff">Staff</a></li>
                 <li><a href="https://discord.gg/bling-smp" class="btn-gold nav-btn">Discord</a></li>
             </ul>
@@ -71,6 +72,53 @@
             </div>
         </div>
     </section>
+    
+    <!-- Rank Store Section -->
+    <section class="store" id="store">
+        <div class="container">
+            <h1 class="section-title">RANK <span class="text-gradient-gold">STORE</span></h1>
+            <p class="section-subtitle">Unlock exclusive perks and stand out on the server.</p>
+            
+            <div class="store-grid">
+                <!-- Bling Rank -->
+                <div class="rank-card glass-card" data-aos="fade-up">
+                    <div class="rank-icon-wrapper">
+                        <i class="fa-solid fa-star rank-icon"></i>
+                    </div>
+                    <h2 class="rank-name">Bling</h2>
+                    <div class="rank-price">$4.99</div>
+                    
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> +3 homes</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Get shards everywhere</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Fly in spawn</li>
+                    </ul>
+                    
+                    <button class="btn-outline-gold" onclick="addToCart('Bling', 4.99)">Add to Cart</button>
+                </div>
+
+                <!-- Bling+ Rank -->
+                <div class="rank-card glass-card popular" data-aos="fade-up" data-aos-delay="100">
+                    <div class="popular-tag">MOST POPULAR</div>
+                    <div class="rank-icon-wrapper">
+                        <i class="fa-solid fa-crown rank-icon"></i>
+                    </div>
+                    <h2 class="rank-name">Bling+</h2>
+                    <div class="rank-price">$9.99</div>
+                    
+                    <ul class="rank-features">
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> +3 homes</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Get shards everywhere</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Fly in spawn</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Early access to updates</li>
+                        <li><i class="fa-solid fa-diamond gold-gem"></i> Faster RTP</li>
+                    </ul>
+                    
+                    <button class="btn-outline-gold" onclick="addToCart('Bling+', 9.99)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Staff Section -->
     <section class="staff" id="staff">
@@ -103,6 +151,31 @@
             <div class="made-by">Built with 💎 by <span class="text-gradient-gold">Bypass_1</span></div>
         </div>
     </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>SHOPPING CART</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Items injected by JS -->
+            <div class="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn-gold checkout-btn">Checkout Now</button>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
 
     <script src="script.js"></script>
 </body>

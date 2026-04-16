@@ -101,3 +101,91 @@ window.addEventListener('scroll', () => {
         nav.style.background = 'rgba(5, 5, 5, 0.8)';
     }
 });
+
+// Cart Logic
+let cart = JSON.parse(localStorage.getItem('bling-cart')) || [];
+
+function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.classList.toggle('open');
+}
+
+function addToCart(name, price) {
+    const item = { id: Date.now(), name, price };
+    cart.push(item);
+    updateCartUI();
+    saveCart();
+    
+    // Open cart drawer to show the item was added
+    const drawer = document.getElementById('cart-drawer');
+    if (!drawer.classList.contains('open')) {
+        drawer.classList.add('open');
+    }
+
+    // Optional: Add a small bounce animation to the floating cart
+    const floatingCart = document.querySelector('.floating-cart');
+    floatingCart.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        floatingCart.style.transform = 'scale(1)';
+    }, 200);
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCartUI();
+    saveCart();
+}
+
+function updateCartUI() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cartCountElement = document.getElementById('cart-count');
+    const totalPriceElement = document.getElementById('cart-total-price');
+    
+    if (!cartItemsElement || !cartCountElement || !totalPriceElement) return;
+
+    // Update count
+    cartCountElement.innerText = cart.length;
+    
+    // Update items list
+    if (cart.length === 0) {
+        cartItemsElement.innerHTML = '<div class="empty-cart-msg">Your cart is empty.</div>';
+    } else {
+        cartItemsElement.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="item-info">
+                    <h4>${item.name}</h4>
+                    <span>$${item.price.toFixed(2)}</span>
+                </div>
+                <button class="remove-item" onclick="removeFromCart(${item.id})">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        `).join('');
+    }
+    
+    // Update total
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    totalPriceElement.innerText = `$${total.toFixed(2)}`;
+}
+
+function saveCart() {
+    localStorage.setItem('bling-cart', JSON.stringify(cart));
+}
+
+// Initialize Cart on Page Load
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartUI();
+});
+
+// Close cart when clicking outside
+document.addEventListener('click', (e) => {
+    const drawer = document.getElementById('cart-drawer');
+    const floatingCart = document.querySelector('.floating-cart');
+    
+    if (drawer && drawer.classList.contains('open') && 
+        !drawer.contains(e.target) && 
+        !floatingCart.contains(e.target) &&
+        !e.target.classList.contains('btn-outline-gold')) {
+        drawer.classList.remove('open');
+    }
+});
